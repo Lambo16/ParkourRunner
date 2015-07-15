@@ -1,0 +1,40 @@
+name: ParkourRunner
+version: 1.0.0
+api: [1.12.0]
+author: Lambo
+main: Lambo\ParkourRunner\Runner
+description: For NexyPL 
+commands:
+    pk:
+        description: "View parkour commands"
+        usage: "/pk <start|leave|reset|create> [arena]"
+        permission: "mylock.mylock"
+permissions:
+    pkrunner:
+        default: op
+        description: "Access to all parkour commands."
+        children:
+            pkrunner.start:
+                default: true
+                description: "Start parkour"
+            pkrunner.leave:
+                default: true
+                description: "Leave parkour"
+            pkrunner.reset:
+                default: true
+                description: "Reset current run"
+            pkrunner.create:
+                default: op
+                description: "Remove player access to chest"
+            pkrunner.setstart:
+                default: op
+                description: "Set start position"
+            pkrunner.settimer:
+                default: op
+                description: "Set timer block"
+            pkrunner.setend:
+                default: op
+                description: "Set end position"
+            pkrunner.setcheckpoint:
+                default: op
+                description: "Set checkpoint"
