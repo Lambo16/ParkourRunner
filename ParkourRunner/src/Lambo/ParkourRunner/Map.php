@@ -94,10 +94,8 @@ class Map extends Runner{
 	public function getTopTen(){
 		$query = Runner::$mysql->query("SELECT * FROM ParkourRunner WHERE map = '".$this->getMapName()."' ORDER BY highscore ASC LIMIT 10;");
 		$topten = array();
-		for($i = 0; $i<10; $i++){
-			while($row = $query->fetch_assoc()){
-				$topten[$i] = array("username"=>$row['username'],"highscore"=>$row['highscore']);
-			}
+		while($row = $query->fetch_assoc()){
+			$topten[++$row] = array("username"=>$row['username'],"highscore"=>$row['highscore']);
 		}
 		return $topten;
 	}
